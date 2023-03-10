@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+}
+
+plugins {
+	id 'org.asciidoctor.jvm.convert' version '3.1.0'
+}
+
+repositories {
+    mavenLocal()
+	mavenCentral()
+}
+
+configurations {
+    provided
+}
+
+dependencies {
+}
+
+asciidoctor {
+	baseDirFollowsSourceFile()
+    options = [
+        doctype: 'book'
+    ]
+    attributes = [
+            'source-highlighter': 'coderay',
+            toc                 : 'left',
+            'toc-title': 'Table of Contents',
+            idprefix            : '',
+            idseparator         : '-'
+    ]
+}
